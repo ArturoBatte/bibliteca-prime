@@ -1,4 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Libro } from '../interfaces/libro.interface';
+import { LibrosService } from '../servicios/libros.service';
 
 @Component({
   selector: 'app-libros',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibrosComponent implements OnInit {
 
-  constructor() { }
+  listaLibros: Libro[] = [];
+  cargando: boolean = false;
+
+  constructor(
+    private servicioLibros: LibrosService
+  ) { }
 
   ngOnInit(): void {
+    this.cargarLibros();
+  }
+
+  cargarLibros(): void {
+    this.cargando = true;
+
+    this.servicioLibros.get().subscribe({
+      next: (datos) => {
+        this.listaLibros = datos;
+        this.cargando = false;
+      },
+      error: (e) => {
+        console.log(e);
+        this.cargando = false;
+      }
+    });
+
+
   }
 
 }
