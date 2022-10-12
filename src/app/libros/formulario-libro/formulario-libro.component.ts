@@ -47,7 +47,7 @@ export class FormularioLibroComponent implements OnInit {
               this.mensajes=[{severity: 'success', summary: 'Exito', detail: 'Se registró el libro'}]
           },
           error: (e) =>{
-              this.guardando = false;
+              this.guardando = false ;
               console.log(e);
               this.mensajes=[{severity: 'error', summary: 'Error al registrar', detail: e.error}]
 
