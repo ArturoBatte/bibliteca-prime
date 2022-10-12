@@ -1,0 +1,28 @@
+<div class="field">
+    <label for="codigo">Código:</label>
+    <p-inputNumber id="codigo" styleClass="w-full" class="w-full" [(ngModel)]="codigo" 
+    [ngClass]="{'ng-invalid': !codigoValido, 'ng-dirty': !codigoValido}"></p-inputNumber>
+    <small *ngIf="!codigoValido" id="codigo-help" class="p-error block">Ingresar codigo.</small>  
+</div>
+<div class="field">
+    <label for="titulo">Título:</label>
+    <input id="titulo" type="text" class="w-full" [(ngModel)]="titulo" 
+    [ngClass]="{'ng-invalid' : !tituloValido, 'ng-dirty': !tituloValido}"pInputText>
+    <small *ngIf="!tituloValido" id="titulo-help" class="p-error block">Ingresar titulo.</small>  
+</div>
+<div class="field">
+    <label for="autor">Autor:</label>
+    <input id="autor" type="text" class="w-full" [(ngModel)]="autor" 
+    [ngClass]="{'ng-invalid': !autorValido, 'ng-dirty': !autorValido}"pInputText>
+    <small *ngIf="!autorValido" id="autor-help" class="p-error block">Ingresar autor.</small>  
+</div>
+<div class="field">
+    <label for="paginas">Páginas:</label>
+    <p-inputNumber id="paginas" styleClass="w-full" class="w-full" [(ngModel)]="paginas" 
+    [ngClass]="{'ng-invalid': !paginasValido, 'ng-dirty': !paginasValido}"></p-inputNumber>
+    <small *ngIf="!paginasValido" id="paginas-help" class="p-error block">Ingresar paginas.</small>  
+</div>
+<div class="field">
+<button pButton label="Guardar" icon="pi pi-save" (click)="guardar()" [loading]="guardando"></button>
+</div> 
+<p-messages [(value)]="mensajes"></p-messages> 
