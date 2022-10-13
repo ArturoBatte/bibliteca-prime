@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Message } from 'primeng/api';
+import { ConfirmationService, Message } from 'primeng/api';
 import { Libro } from '../interfaces/libro.interface';
 import { LibrosService } from '../servicios/libros.service';
 import { FormularioLibroComponent } from './formulario-libro/formulario-libro.component';
@@ -21,7 +21,8 @@ export class LibrosComponent implements OnInit {
   tituloDialogo: string = 'Registrar libro';
 
   constructor(
-    private servicioLibros: LibrosService
+    private servicioLibros: LibrosService,
+    private servicioConfirm: ConfirmationService
   ) { }
 
   ngOnInit(): void {
@@ -61,4 +62,25 @@ export class LibrosComponent implements OnInit {
         this.tituloDialogo = "Editar libro";
 
       }
+      eliminar(libro : Libro){
+        this.servicioConfirm.confirm({
+         message: "¿Realmente desea eliminar '"+libro.id+"-"+libro.titulo+'-'+libro.autor+"'?",
+         acceptLabel: 'Eliminar',
+         rejectLabel: 'Cancelar',
+         acceptButtonStyleClass: 'p-button-danger',
+         acceptIcon: 'pi pi-trash',
+        accept: () => {
+          this.servicioLibros.delete(libro).subscribe({
+            next: ()=>{
+              this.mensajes = [{severity: 'success', summary: 'Exito', detail: 'Se eliminó correctamente el libro.'}];
+              this.cargarLibros();
+          },
+          error: (e) => {
+            console.log(e);
+            this.mensajes=[{severity: 'error', summary: 'Error al eliminar', detail: e.error}];
+          }
+        });
+      }
+    });
+  }
 }

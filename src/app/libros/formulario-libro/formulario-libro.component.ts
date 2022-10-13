@@ -1,4 +1,3 @@
-
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Message } from 'primeng/api';
 import { Libro } from 'src/app/interfaces/libro.interface';
@@ -21,7 +20,6 @@ export class FormularioLibroComponent implements OnInit {
   paginasValido: boolean = true;
 
   guardando: boolean = false;
-
   mensajes: Message[] = [];
 
   modo:'Registrar' | 'Editar' = 'Registrar';
@@ -88,7 +86,7 @@ export class FormularioLibroComponent implements OnInit {
     this.tituloValido = this.titulo !== null && this.titulo?.length > 0;
     this.autorValido = this.autor  !== null && this.autor?.length > 0;
     this.paginasValido = this.paginas !== null;
-    return this.codigoValido && this.tituloValido && this.autorValido && this.paginasValido
+    return this.codigoValido && this.tituloValido && this.autorValido && this.paginasValido;
     }
     limpiarFormulario(){
       this.codigo = null;
