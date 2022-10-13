@@ -24,5 +24,3 @@ url: string = 'http://localhost:3000/libro';
     return this.http.put(this.url, libro, { responseType: 'text'});
   }
 }
-
-//Tarea 6
