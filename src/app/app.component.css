@@ -3,7 +3,7 @@
 }
 
 :host >>> .p-menubar {
-    background: var(--900--);
+    background: var(--surface-0);
     border-radius: 0;
 }
 
