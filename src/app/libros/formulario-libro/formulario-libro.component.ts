@@ -3,6 +3,7 @@ import { Message } from 'primeng/api';
 import { Autor } from 'src/app/interfaces/autor.interface';
 import { Libro } from 'src/app/interfaces/libro.interface';
 import { AutoresService } from 'src/app/servicios/autores.service';
+
 import { LibrosService } from 'src/app/servicios/libros.service';
 
 @Component({
@@ -61,6 +62,7 @@ export class FormularioLibroComponent implements OnInit {
           titulo: this.titulo,
           idautor: this.idautor,
           autor: null,
+
           paginas: this.paginas
         }
         if(this.modo === 'Registrar'){
@@ -102,7 +104,6 @@ export class FormularioLibroComponent implements OnInit {
         }
       });
     }
-
     validar(): boolean{
     this.codigoValido = this.codigo !== null
     this.tituloValido = this.titulo !== null && this.titulo?.length > 0;

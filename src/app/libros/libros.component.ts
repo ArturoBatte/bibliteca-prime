@@ -13,6 +13,7 @@ export class LibrosComponent implements OnInit {
 
   @ViewChild('formulario') formLibro!: FormularioLibroComponent
 
+
   listaLibros: Libro[] = []; //Aqui se guarda la lista de libros
   cargando: boolean = false; //Esata variable muestra la animacion de carga
   dialogoVisible: boolean = false; // Indica si el dialogo esta visible u oculto
@@ -41,6 +42,7 @@ export class LibrosComponent implements OnInit {
         console.log(e);
         this.cargando = false;
         this.mensajes = [{ severity: 'error', summary: 'Error al cargar libros', detail: e.message }]
+
       }
     });
   }
@@ -80,6 +82,7 @@ export class LibrosComponent implements OnInit {
           error: (e) => {
             console.log(e);
             this.mensajes = [{ severity: 'error', summary: 'Error al eliminar', detail: e.error }];
+
           }
         });
       }
