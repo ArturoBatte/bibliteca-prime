@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "primeflex": "^3.2.1",
     "primeng": "^14.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -35,5 +36,17 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArturoBatte/bibliteca-prime.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArturoBatte/bibliteca-prime/issues"
+  },
+  "homepage": "https://github.com/ArturoBatte/bibliteca-prime#readme"
 }
